@@ -1,0 +1,7 @@
+# Nmap 7.991 scan initiated Mon Oct 12 05:37:30 2026 as: /usr/lib/nmap/nmap --privileged -oN /home/kali/soc-project/evidence/initial-local-scan.txt 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000020s latency).
+All 1000 scanned ports on localhost (127.0.0.1) are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+# Nmap done at Mon Oct 12 05:37:31 2026 -- 1 IP address (1 host up) scanned in 0.08 seconds

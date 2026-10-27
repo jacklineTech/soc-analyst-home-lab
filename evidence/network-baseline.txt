@@ -1,0 +1,25 @@
+HOME SOC LAB - NETWORK BASELINE
+
+Date: 12 October 2026
+System: Kali Linux in VirtualBox
+
+OBSERVATION
+The listening-socket check showed no TCP or UDP listening sockets.
+A subsequent socket check showed a UDP socket owned by NetworkManager.
+
+DETAILS
+Local endpoint: 10.0.2.15:68
+Peer endpoint: 10.0.2.2:67
+Process: NetworkManager
+Protocol: UDP
+
+ANALYSIS
+The endpoints and ports are consistent with DHCP activity.
+The observation is not, by itself, evidence of malicious activity.
+
+LIMITATIONS
+A single socket snapshot does not establish the complete network
+baseline. Additional observations may be needed during normal
+network activity.
+
+END OF REPORT

@@ -1,0 +1,43 @@
+WAZUH REQUIREMENTS ASSESSMENT
+Date: 2026-10-16
+
+PROJECT: Home SOC Lab
+
+CURRENT ENVIRONMENT
+- Host physical RAM: approximately 7.64 GB
+- Kali VM RAM allocation: 3 GB
+- Kali VM CPUs: 2
+- Docker: installed and verified using hello-world
+- Existing baseline evidence: saved in the evidence directory
+
+DECISION
+Wazuh remains a planned component of this SOC portfolio.
+The full deployment will not be attempted until its resource requirements
+and the available memory have been assessed.
+
+REASON
+The laptop has limited memory, and running a full SIEM stack alongside
+Kali and Windows could make the system unstable or unresponsive.
+
+NEXT ACTION
+Check current official Wazuh requirements and identify a practical,
+free deployment approach suitable for this laptop.
+
+OFFICIAL DOCUMENTATION
+https://documentation.wazuh.com/current/quickstart.html
+
+VERIFIED OFFICIAL REQUIREMENTS
+- Wazuh Quickstart recommendation for 1-25 agents:
+  4 vCPU, 8 GiB RAM, 50 GB storage.
+- Wazuh Docker single-node stack:
+  At least 4 CPU cores, 8 GB host RAM, 50 GB disk.
+- References:
+  https://documentation.wazuh.com/current/quickstart.html
+  https://documentation.wazuh.com/current/deployment-options/docker/wazuh-container.html
+
+DEPLOYMENT DECISION
+Do not install the full Wazuh stack on the current Kali VM yet.
+Keep Wazuh as a planned portfolio component.
+Continue with safe local SOC exercises while evaluating a suitable
+resource-efficient environment for the complete SIEM.
+

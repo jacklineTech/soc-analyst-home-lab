@@ -1,0 +1,13 @@
+HOME SOC LAB - AUTHENTICATION LOG ANALYSIS
+============================================
+Log file: evidence/sample-logs/sample-auth.log
+Failed login events analysed: 4
+Successful login events in sample: 1
+Detection threshold: 3 failed logins per IP
+
+Source IP: 192.0.2.45 | Failed logins: 4
+ALERT: Repeated failed logins from 192.0.2.45
+Suggested action: Review surrounding events and verify context.
+
+NOTE: This is fictional training data.
+An alert indicates a pattern for investigation, not proof of compromise.

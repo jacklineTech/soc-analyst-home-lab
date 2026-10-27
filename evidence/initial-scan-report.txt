@@ -1,0 +1,32 @@
+HOME SOC LAB - INITIAL NETWORK SCAN REPORT
+
+Date: 12 October 2026
+Analyst: Jackie Maina
+Tool: Nmap 7.991
+Target: 127.0.0.1 (localhost)
+Test: Default TCP port scan
+
+OBJECTIVE
+Establish a baseline of common TCP ports on the local Kali system.
+
+FINDINGS
+- The target host was up.
+- Nmap scanned 1,000 common TCP ports.
+- All 1,000 scanned ports were closed.
+- No open TCP ports were identified in this scan.
+
+ASSESSMENT
+No listening services were identified among the TCP ports tested.
+This result does not establish that the entire system is secure.
+UDP ports, other TCP ports, vulnerabilities, and security controls
+were not assessed.
+
+EVIDENCE
+initial-local-scan.txt
+
+NEXT STEPS
+- Identify services intentionally running on the lab system.
+- Compare expected services with observed listening ports.
+- Continue building monitoring and detection capabilities.
+
+END OF REPORT

@@ -1,0 +1,12 @@
+HOME SOC LAB - AUTHENTICATION LOG ANALYSIS
+============================================
+Log file: evidence/sample-logs/sample-auth-low-volume.log
+Failed login events analysed: 2
+Successful login events in sample: 0
+Detection threshold: 3 failed logins per IP
+
+Source IP: 192.0.2.60 | Failed logins: 2
+No alert: Count is below the configured threshold.
+
+NOTE: This is fictional training data.
+An alert indicates a pattern for investigation, not proof of compromise.
