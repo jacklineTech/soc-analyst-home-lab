@@ -1,21 +1,9 @@
-HOME SOC LAB - AUTOMATED TEST RESULTS
-Date: 2026-10-16
+test_failures_followed_by_success_trigger_alert (test_auth_log_detection.TestAuthenticationDetection.test_failures_followed_by_success_trigger_alert) ... ok
+test_four_failures_trigger_alert (test_auth_log_detection.TestAuthenticationDetection.test_four_failures_trigger_alert) ... ok
+test_successful_login_is_counted (test_auth_log_detection.TestAuthenticationDetection.test_successful_login_is_counted) ... ok
+test_two_failures_do_not_trigger_alert (test_auth_log_detection.TestAuthenticationDetection.test_two_failures_do_not_trigger_alert) ... ok
 
-Test framework: Python unittest
-Detection script: detection-rules/analyze_auth_logs.py
-Test file: tests/test_auth_log_detection.py
+----------------------------------------------------------------------
+Ran 4 tests in 0.095s
 
-RESULTS
-1. Four failed logins trigger an alert: PASS
-2. Two failed logins do not trigger an alert: PASS
-3. Successful login event is counted: PASS
-
-TOTAL: 3 tests
-PASSED: 3
-FAILED: 0
-
-CONCLUSION
-The detection script passed all three automated tests using fictional
-authentication logs. The tests validate the configured threshold logic
-and successful-login counting. They do not establish detection accuracy
-against all real-world attack scenarios.
+OK

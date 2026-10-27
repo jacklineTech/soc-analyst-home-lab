@@ -16,32 +16,40 @@ if not log_file.is_file():
     print(f"ERROR: Log file not found: {log_file}")
     sys.exit(1)
 
-failed_events = []
+failed_counts = Counter()
+failed_then_success = set()
 successful_count = 0
 
 with log_file.open("r", encoding="utf-8") as file:
     for line in file:
-        if "Failed password" in line:
-            match = re.search(r"\bfrom\s+(\d{1,3}(?:\.\d{1,3}){3})\b", line)
-            if match:
-                failed_events.append(match.group(1))
+        match = re.search(
+            r"\bfrom\s+(\d{1,3}(?:\.\d{1,3}){3})\b",
+            line
+        )
+
+        if "Failed password" in line and match:
+            failed_counts[match.group(1)] += 1
+
         elif "Accepted password" in line:
             successful_count += 1
 
-counts = Counter(failed_events)
+            if match:
+                ip = match.group(1)
+                if failed_counts[ip] >= threshold:
+                    failed_then_success.add(ip)
 
 print("HOME SOC LAB - AUTHENTICATION LOG ANALYSIS")
 print("=" * 44)
 print(f"Log file: {log_file}")
-print(f"Failed login events analysed: {len(failed_events)}")
+print(f"Failed login events analysed: {sum(failed_counts.values())}")
 print(f"Successful login events in sample: {successful_count}")
 print(f"Detection threshold: {threshold} failed logins per IP")
 print()
 
-if not counts:
+if not failed_counts:
     print("No failed-login events with identifiable source IPs found.")
 
-for ip, count in counts.most_common():
+for ip, count in failed_counts.most_common():
     print(f"Source IP: {ip} | Failed logins: {count}")
 
     if count >= threshold:
@@ -49,6 +57,10 @@ for ip, count in counts.most_common():
         print("Suggested action: Review surrounding events and verify context.")
     else:
         print("No alert: Count is below the configured threshold.")
+
+    if ip in failed_then_success:
+        print(f"ALERT: Failed logins followed by a successful login from {ip}")
+        print("Suggested action: Investigate the account, source IP, and login timeline.")
 
 print()
 print("NOTE: This is fictional training data.")

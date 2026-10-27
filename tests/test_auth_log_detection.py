@@ -36,5 +36,14 @@ class TestAuthenticationDetection(unittest.TestCase):
         self.assertIn("Successful login events in sample: 1", output)
 
 
+    def test_failures_followed_by_success_trigger_alert(self):
+        output = analyze("sample-auth-suspicious-sequence.log")
+        self.assertIn("Failed logins: 3", output)
+        self.assertIn(
+            "ALERT: Failed logins followed by a successful login from 192.0.2.75",
+            output,
+        )
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
